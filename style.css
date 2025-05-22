@@ -24,18 +24,19 @@ body {
 }
 
 #display {
-    height: 60px;
+    min-height: 60px;
     width: 340px;
     padding: 20px;
     border-radius: 15px;
     background-color: #2d2d2d;
     flex-shrink: 0;
-    display: flex;
-    justify-content: flex-end;
+    display: block;
     align-items: center;
     font-size: 48px;
     color: #ffffff;
     font-weight: 800;
+    overflow-wrap: break-word;
+    text-align: right;
 }
 
 #buttons {
@@ -64,11 +65,13 @@ body {
     background-color: #E0E0E0;
 }
 
-.operation {
+.operators,
+.operate {
     background-color: #ffA500;
 }
 
-.operation:active {
+.operators:active,
+.operate:active {
     background-color: #E59400;
 }
 

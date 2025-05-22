@@ -17,26 +17,41 @@ function divide(arg1, arg2) {
     return result = arg1 / arg2;
 };
 
-
-let firstNumber = [];
-let secondNumber;
-let operation;
+let firstNumber = "";
+let secondNumber = "";
+let operation = "";
 const display = document.getElementById("display");
+
+const btnClear = document.querySelector("#clear");
+btnClear.addEventListener("click", () => {
+    firstNumber = "";
+    secondNumber = "";
+    operation = ""
+    display.innerHTML = "";
+});
 
 const btnNumber = document.querySelectorAll(".number");
 btnNumber.forEach(btn => {
     btn.addEventListener("click", () => {
-        firstNumber.push(btn.innerHTML);
-        // console.log(firstNumber);
-        let firstNumberJoined = parseInt(firstNumber.join(""));
-        // console.log(firstNumberJoined);
-        display.innerHTML = firstNumberJoined;
+        if (operation === "") {
+            firstNumber += btn.innerHTML;
+            // console.log(firstNumber);
+            display.innerHTML = firstNumber;
+        } else {
+            secondNumber += btn.innerHTML;
+            // console.log(secondNumber);
+            display.innerHTML = secondNumber;
+        };
     });
 });
 
-const btnClear = document.querySelector("#clear");
-btnClear.addEventListener("click", () => {
-    firstNumber = [];
-    console.log(firstNumber);
-    display.innerHTML = "";
+const btnOperator = document.querySelectorAll(".operators");
+btnOperator.forEach(btn => {
+    btn.addEventListener("click", () => {
+        if (secondNumber === "") {
+            operation = btn.innerHTML;
+            // console.log(operation);
+            display.innerHTML = operation;
+        };
+    });
 });
