@@ -1,5 +1,5 @@
 function add(arg1, arg2) {
-    result = parseInt(arg1) + parseInt(arg2);
+    result = parseFloat(arg1) + parseFloat(arg2);
     display.innerHTML = result;
 };
 
@@ -22,6 +22,7 @@ function divide(arg1, arg2) {
     display.innerHTML = result;
 };
 
+
 let firstNumber = "";
 let secondNumber = "";
 let operation = "";
@@ -36,14 +37,40 @@ btnClear.addEventListener("click", () => {
 });
 
 const btnNumber = document.querySelectorAll(".number");
+const separator = document.getElementById("separator").innerHTML;
+
 btnNumber.forEach(btn => {
     btn.addEventListener("click", () => {
         if (operation === "") {
-            firstNumber += btn.innerHTML;
-            display.innerHTML = firstNumber;
+            if (btn.innerHTML === separator) {
+                if (firstNumber === "") {
+                    display.innerHTML = "0."
+                    firstNumber = 0 + btn.innerHTML;
+                } else if (firstNumber.includes(separator)) {
+                    firstNumber;
+                } else {
+                    firstNumber += btn.innerHTML;
+                    display.innerHTML = firstNumber;
+                };
+            } else {
+                firstNumber += btn.innerHTML;
+                display.innerHTML = firstNumber;
+            };
         } else {
-            secondNumber += btn.innerHTML;
-            display.innerHTML = secondNumber;
+            if (btn.innerHTML === separator) {
+                if (secondNumber === "") {
+                    display.innerHTML = "0."
+                    secondNumber = 0 + btn.innerHTML;
+                } else if (secondNumber.includes(separator)) {
+                    secondNumber;
+                } else {
+                    secondNumber += btn.innerHTML;
+                    display.innerHTML = secondNumber;
+                };
+            } else {
+                secondNumber += btn.innerHTML;
+                display.innerHTML = secondNumber;
+            };
         };
     });
 });
