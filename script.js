@@ -96,6 +96,9 @@ btnBack.addEventListener("click", () => {
     if (operation === "" && firstNumber !== "") {
         firstNumber = firstNumber.slice(0, -1);
         display.innerHTML = firstNumber
+    } else if (operation !== "" && secondNumber !== "") {
+        secondNumber = secondNumber.slice(0, -1);
+        display.innerHTML = secondNumber
     }
 });
 
