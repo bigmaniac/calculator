@@ -90,6 +90,15 @@ btnOperator.forEach(btn => {
     });
 });
 
+const btnBack = document.getElementById("back");
+
+btnBack.addEventListener("click", () => {
+    if (operation === "" && firstNumber !== "") {
+        firstNumber = firstNumber.slice(0, -1);
+        display.innerHTML = firstNumber
+    }
+});
+
 function operate(number1, number2, operator) {
     if (operator === "+") {
         add(number1, number2);
