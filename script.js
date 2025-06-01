@@ -53,7 +53,7 @@ btnNumber.forEach(btn => {
                     firstNumber += btn.innerHTML;
                     display.innerHTML = firstNumber;
                 };
-            } else if (firstNumber === "0" ) {
+            } else if (firstNumber === "0") {
                 display.innerHTML = firstNumber;
             } else {
                 firstNumber += btn.innerHTML;
@@ -70,6 +70,8 @@ btnNumber.forEach(btn => {
                     secondNumber += btn.innerHTML;
                     display.innerHTML = secondNumber;
                 };
+            } else if (secondNumber === "0") {
+                display.innerHTML = secondNumber;
             } else {
                 secondNumber += btn.innerHTML;
                 display.innerHTML = secondNumber;
