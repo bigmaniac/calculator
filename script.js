@@ -19,7 +19,7 @@ function divide(arg1, arg2) {
     } else {
         result = arg1 / arg2;
     };
-    display.innerHTML = result;
+    display.innerHTML = +result.toFixed(11);
 };
 
 
@@ -38,6 +38,7 @@ btnClear.addEventListener("click", () => {
 
 const btnNumber = document.querySelectorAll(".number");
 const separator = document.getElementById("separator").innerHTML;
+const btnZero = document.getElementById("zero").innerHTML;
 
 btnNumber.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -52,6 +53,8 @@ btnNumber.forEach(btn => {
                     firstNumber += btn.innerHTML;
                     display.innerHTML = firstNumber;
                 };
+            } else if (firstNumber === "0" ) {
+                display.innerHTML = firstNumber;
             } else {
                 firstNumber += btn.innerHTML;
                 display.innerHTML = firstNumber;
